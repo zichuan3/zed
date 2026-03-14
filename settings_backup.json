@@ -1,0 +1,127 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "file_types": {
+    "JavaScript": [
+      "js"
+    ],
+    "HTML": [
+      "html",
+      "cshtml"
+    ],
+  },
+  // 编辑
+  "tab_size": 2,
+  "hard_tabs": false, // 使用空格而非制表符
+  "auto_indent": true,
+  "auto_indent_on_paste": true,
+  "use_autoclose": true, // 自动闭合括号等字符
+  "use_auto_surround": true, // 自动环绕
+  "extend_comment_on_newline": false, // 换行注释
+  "remove_trailing_whitespace_on_save": true, // 保存移除行尾空白字符
+  "ensure_final_newline_on_save": false, // 确保末尾只有换行
+  // Git
+  "git": {
+    "git_gutter": "tracked_files", // 显示 Git 差异标识
+    "inline_blame": {
+      "enabled": true,
+      "show_commit_summary": false
+    },
+  },
+  // 智能功能
+  "enable_language_server": true,
+  "agent": {
+    "default_profile": "ask",
+    "expand_edit_card": true,
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4o",
+    },
+    "model_parameters": [],
+  },
+  // 格式化
+  "auto_update": false,
+  "formatter": "language_server", // 优先使用 LSP 格式化
+  "format_on_save": "off",
+  // UI
+  "relative_line_numbers": "enabled",
+  "agent_ui_font_size": 16.0,
+  "ui_font_weight": 400.0,
+  "restore_on_startup": "last_session",
+  "ui_font_family": "JetBrains Mono NL",
+  "buffer_font_family": "JetBrains Mono NL",
+  "ui_font_size": 16.0,
+  "buffer_font_size": 15.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
+  "active_pane_modifiers": {
+    "border_size": 0.0,
+    "inactive_opacity": 0.8,
+  },
+  "edit_predictions_disabled_in": [
+    "comment"
+  ],
+  "current_line_highlight": "line",
+  "scrollbar": {
+    "diagnostics": "warning",
+  },
+  "terminal": {
+    "shell": {
+      "program": "cmd.exe",
+    },
+    "dock": "bottom",
+  },
+  "disable_ai": false,
+  "features": {
+    "edit_prediction_provider": "zed",
+  },
+  "auto_install_extensions": {
+    "html": true,
+    "javascript": false,
+  },
+  // 格式化
+  "lsp": {
+    "biome": {
+      "settings": {},
+    },
+  },
+  "languages": {
+    "JavaScript": {
+      "language_servers": [
+        "biome"
+      ],
+      "formatter": {
+        "language_server": {
+          "name": "biome",
+        },
+      }
+    },
+    "HTML": {
+      "language_servers": ["biome"]
+    },
+    "JSON": {
+      "language_servers": [
+        "biome"
+      ]
+    }
+  },
+  // vim 模式
+  "vim_mode": false,
+  // 快捷键
+  "base_keymap": "JetBrains",
+  // 图表
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
+}
