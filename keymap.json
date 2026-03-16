@@ -7,13 +7,26 @@
 // from the command palette.
 [
   {
-    "context": "Workspace",
+    "context": "Editor",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
-      "ctrl-p": [
+      "space f": [
         "task::Spawn",
-        { "task_name": "Television File Finder", "reveal_target": "center"}
-      ]
+        {
+          "task_name": "Text Finder",
+          "reveal_target": "center"
+        }
+      ],
+      "ctrl-w": "pane::CloseActiveItem",
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+      "alt-up": "editor::SelectLargerSyntaxNode",
+      "alt-down": "editor::SelectSmallerSyntaxNode",
+      // "alt-shift-up": null,
+      // "alt-shift-down": null,
+      // "ctrl-pagedown": null,
+      // "ctrl-pageup": null,
+      // "ctrl-shift-w": null,
     },
   },
   {
@@ -21,5 +34,20 @@
     "bindings": {
       // "j k": "vim::NormalBefore"
     },
-  }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "ctrl-n": null,
+      // "ctrl-k": null,
+      // "alt-0": null,
+      "shift shift": null
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      // "alt-0": null
+    }
+  },
 ]

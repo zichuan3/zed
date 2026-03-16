@@ -54,7 +54,6 @@
     "model_parameters": [],
   },
   "auto_update": false,
-  "enable_preview_from_code_navigation": true,
   // 9.Editing Behavior
   "hard_tabs": false,
   "tab_size": 2,
