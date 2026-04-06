@@ -10,12 +10,39 @@
     "context": "Editor",
     "bindings": {
       // "shift shift": "file_finder::Toggle"
+      "ctrl-w": "pane::CloseActiveItem",
+      // Line Move
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+      // Select SyntaxNode
+      "alt-up": "editor::SelectLargerSyntaxNode",
+      "alt-down": "editor::SelectSmallerSyntaxNode",
+      // Indent/Outdent
+      "<": "editor::Outdent",
+      ">": "editor::Indent",
+      "ctrl-a": "editor::MoveToBeginningOfLine",
+      "ctrl-e": "editor::MoveToEndOfLine",
+      // select all matches
+      "ctrl-i": "editor::SelectAllMatches",
+    },
+    "unbind": {
+      "alt-j": [
+        "editor::SelectNext",
+        {
+          "replace_newest": false,
+        },
+      ],
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
       "space f": [
         "task::Spawn",
         {
           "task_name": "Text Finder",
-          "reveal_target": "center"
-        }
+          "reveal_target": "center",
+        },
       ],
       "ctrl-w": "pane::CloseActiveItem",
       "alt-j": "editor::MoveLineDown",
@@ -33,7 +60,29 @@
     "context": "Editor && vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore"
+      // split pane
+      "space w v": "pane::SplitVertical",
+      "space w h": "pane::SplitHorizontal",
+      // jump pane
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      // resize pane
+      "ctrl-left": "vim::ResizePaneLeft",
+      "ctrl-right": "vim::ResizePaneRight",
+      "ctrl-up": "vim::ResizePaneUp",
+      "ctrl-down": "vim::ResizePaneDown",
+      // active pane
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      // duplicate line
+      "y p": "editor::DuplicateLineDown",
     },
+  },
+  {
+    "context": "Editor && edit_predictions",
+    "bindings": {},
   },
   {
     "context": "Workspace",
@@ -41,13 +90,22 @@
       // "ctrl-n": null,
       // "ctrl-k": null,
       // "alt-0": null,
-      "shift shift": null
-    }
+      "shift shift": null,
+    },
+    "unbind": {
+      "ctrl-j": "workspace::ToggleBottomDock",
+    },
   },
   {
     "context": "Pane",
     "bindings": {
       // "alt-0": null
-    }
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "unbind": {
+      "ctrl-f": "vim::PageDown",
+    },
   },
 ]

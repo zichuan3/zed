@@ -7,7 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  // 主题
+  // theme
   "theme": {
     "mode": "dark",
     "light": "One Light",
@@ -18,27 +18,26 @@
     "light": "Zed (Default)",
     "dark": "Zed (Default)",
   },
-  // 基础键位
-  "base_keymap": "JetBrains",
-  // 特性开关
-  //编辑器字体
+  // base keymap
+  "base_keymap": null,
+  // editor font
   "buffer_font_family": "JetBrains Mono NL",
-  "buffer_font_size": 16.0,
+  "buffer_font_size": 15.5,
   "edit_predictions": {
-    "provider": "zed"
+    "provider": "zed",
   },
-  //UI字体
+  //UI font
   "agent_ui_font_size": 16.0,
   "ui_font_weight": 400.0,
   "ui_font_family": "JetBrains Mono NL",
   "ui_font_size": 16.0,
   // 6.Code && Interface Display
-  "unnecessary_code_fade": 0.5,
+  "unnecessary_code_fade": 0.3,
   "active_pane_modifiers": {
-    "border_size": 0.0,
-    "inactive_opacity": 0.8,
+    "border_size": 1.0,
+    "inactive_opacity": 0.7,
   },
-  "auto_indent": true,
+  "auto_indent": "syntax_aware",
   "auto_indent_on_paste": true,
   "use_autoclose": true,
   "use_auto_surround": true,
@@ -63,9 +62,7 @@
   "format_on_save": "off",
   // 10. Languages && Services
   "file_types": {
-    "HTML": [
-      "cshtml"
-    ],
+    "HTML": ["cshtml"],
   },
   "terminal": {
     "shell": {
@@ -73,10 +70,11 @@
     },
     "detect_venv": {
       "on": {
-        "directories": [ ".env", "env",".venv","venv"],
-        "activate_script": "default"
-      }
-    }
+        "directories": [".env", "env", ".venv", "venv"],
+        "activate_script": "default",
+      },
+    },
+    "copy_on_select": true,
   },
   "auto_install_extensions": {
     "html": true,
@@ -84,36 +82,81 @@
   },
   "lsp": {
     "biome": {
-      "settings": {},
+      "settings": {
+        "config_path": "C:/Users/lenovo/.config/biome.json",
+      },
     },
     "ruff": {
       "initialization_options": {
         "settings": {
-          "exclude": ["*"]
-        }
-      }
-    }
+          "exclude": ["*"],
+        },
+      },
+    },
   },
   "languages": {
     "JavaScript": {
-      "language_servers": [
-        "biome"
-      ],
+      "language_servers": ["biome"],
       "formatter": {
         "language_server": {
           "name": "biome",
         },
-      }
+      },
+      "tab_size": 2,
+    },
+    "TypeScript": {
+      "language_servers": ["biome"],
+      "formatter": {
+        "language_server": {
+          "name": "biome",
+        },
+      },
+      "tab_size": 2,
     },
     "HTML": {
-      "language_servers": ["biome"]
+      "language_servers": ["biome"],
     },
     "JSON": {
-      "language_servers": [
-        "biome"
-      ]
-    }
+      "language_servers": ["biome"],
+      "formatter": {
+        "language_server": {
+          "name": "biome",
+        },
+      },
+    },
+    "Python": {
+      "language_servers": ["ruff", "pyright"],
+      "formatter": {
+        "language_server": {
+          "name": "ruff",
+        },
+      },
+    },
   },
-  // vim 模式
-  "vim_mode": false,
+  // vim mode
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "on_yank",
+    "toggle_relative_line_numbers": true,
+  },
+  "completions": {
+    "words": "enabled", // use document's words for completions
+  },
+  "context_servers": {
+    "mcp-server-github": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "github_personal_access_token": "github_token",
+      },
+    },
+  },
+  "agent_servers": {
+    "qwen-code": {
+      "type": "registry",
+    },
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+  },
 }
