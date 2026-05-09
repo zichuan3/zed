@@ -18,8 +18,6 @@
       "alt-up": "editor::SelectLargerSyntaxNode",
       "alt-down": "editor::SelectSmallerSyntaxNode",
       // Indent/Outdent
-      "<": "editor::Outdent",
-      ">": "editor::Indent",
       "ctrl-a": "editor::MoveToBeginningOfLine",
       "ctrl-e": "editor::MoveToEndOfLine",
       // select all matches
@@ -37,6 +35,7 @@
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
+      "d d": "editor::DeleteLine",
       "space f": [
         "task::Spawn",
         {
@@ -44,9 +43,6 @@
           "reveal_target": "center",
         },
       ],
-      "ctrl-w": "pane::CloseActiveItem",
-      "alt-j": "editor::MoveLineDown",
-      "alt-k": "editor::MoveLineUp",
       "alt-up": "editor::SelectLargerSyntaxNode",
       "alt-down": "editor::SelectSmallerSyntaxNode",
       // "alt-shift-up": null,
@@ -54,12 +50,9 @@
       // "ctrl-pagedown": null,
       // "ctrl-pageup": null,
       // "ctrl-shift-w": null,
-    },
-  },
-  {
-    "context": "Editor && vim_mode == insert",
-    "bindings": {
-      // "j k": "vim::NormalBefore"
+      // active pane
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
       // split pane
       "space w v": "pane::SplitVertical",
       "space w h": "pane::SplitHorizontal",
@@ -73,11 +66,13 @@
       "ctrl-right": "vim::ResizePaneRight",
       "ctrl-up": "vim::ResizePaneUp",
       "ctrl-down": "vim::ResizePaneDown",
-      // active pane
-      "shift-h": "pane::ActivatePreviousItem",
-      "shift-l": "pane::ActivateNextItem",
       // duplicate line
       "y p": "editor::DuplicateLineDown",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
     },
   },
   {
@@ -104,8 +99,18 @@
   },
   {
     "context": "VimControl && !menu",
+    "bindings": {
+      ">": "editor::Indent",
+      "<": "editor::Outdent",
+    },
     "unbind": {
       "ctrl-f": "vim::PageDown",
     },
   },
+  {
+    "context": "(vim_mode == helix_normal || vim_mode == helix_select) && !menu",
+    "unbind": {
+      "y": "vim::HelixYank"
+    }
+  }
 ]

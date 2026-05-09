@@ -8,6 +8,54 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   // theme
+  "language_models": {
+    "openai_compatible": {
+      "muxufo": {
+        "api_url": "http://muxufo.com/v1",
+        "available_models": [
+          {
+            "name": "gemini-3-flash-preview",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true,
+              "chat_completions": true
+            }
+          },
+          {
+            "name": "gemini-3-flash",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": true,
+              "chat_completions": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "theme": {
     "mode": "dark",
     "light": "One Light",
@@ -44,11 +92,26 @@
   "use_smartcase_search": true,
   // 7.Application Behavior
   "agent": {
+    "favorite_models": [
+      {
+        "provider": "muxufo",
+        "model": "gemini-3-flash-preview",
+        "enable_thinking": false
+      },
+      {
+        "provider": "copilot_chat",
+        "model": "gpt-5-mini",
+        "enable_thinking": false,
+        "effort": "high"
+      }
+    ],
+    "dock": "right",
     "default_profile": "ask",
     "expand_edit_card": true,
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-4o",
+      "enable_thinking": false,
+      "provider": "muxufo",
+      "model": "gemini-3-flash-preview",
     },
     "model_parameters": [],
   },
@@ -66,7 +129,7 @@
   },
   "terminal": {
     "shell": {
-      "program": "cmd.exe",
+      "program": "nu.exe",
     },
     "detect_venv": {
       "on": {
@@ -152,8 +215,8 @@
     },
   },
   "agent_servers": {
-    "qwen-code": {
-      "type": "registry",
+    "opencode": {
+      "type": "registry"
     },
     "github-copilot-cli": {
       "type": "registry",
